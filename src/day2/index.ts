@@ -1,22 +1,20 @@
-import { parseFromFile } from "../utils/parser";
-
-type Direction = {
+export type Direction = {
   direction: "up" | "down" | "forward";
   amount: number;
 };
 
-type Part1 = {
+export type Part1 = {
   depth: number;
   position: number;
 };
 
-type Part2 = {
+export type Part2 = {
   depth: number;
   position: number;
   aim: number;
 };
 
-function part1(values: Direction[]) {
+export function part1(values: Direction[]) {
   const initialCount: Part1 = { depth: 0, position: 0 };
 
   const changes = values.reduce((acc, curr) => {
@@ -42,7 +40,7 @@ function part1(values: Direction[]) {
   return changes.depth * changes.position;
 }
 
-function part2(values: Direction[]) {
+export function part2(values: Direction[]) {
   const initialCount: Part2 = { depth: 0, position: 0, aim: 0 };
 
   const changes = values.reduce((acc, curr) => {
@@ -71,7 +69,7 @@ function part2(values: Direction[]) {
   return changes.depth * changes.position;
 }
 
-const parser = (x: string): Direction => {
+export const parser = (x: string): Direction => {
   const [command, amount] = x.split(" ");
 
   if (command !== "up" && command !== "down" && command !== "forward") {
@@ -85,6 +83,3 @@ const parser = (x: string): Direction => {
 
   return result;
 };
-const xs = parseFromFile<Direction>("./input/day2/part1.txt", parser);
-console.log("part1: ", part1(xs));
-console.log("part2: ", part2(xs));
