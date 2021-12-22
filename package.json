@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest ./tests",
+    "test:watch": "jest ./tests --watch",
     "lint": "eslint ./src",
     "day:1": "ts-node src/day1/index.ts",
     "day:2": "ts-node src/day2/index.ts",

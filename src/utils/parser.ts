@@ -10,3 +10,7 @@ export function parseFromFile<Type>(
     .split("\n")
     .map((x) => parser(x));
 }
+
+export function readFromFile(path: fs.PathOrFileDescriptor) {
+  return fs.readFileSync(path, "utf8").trim();
+}
